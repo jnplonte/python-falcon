@@ -12,10 +12,9 @@
 
 
 ## Installation
-- Install python dependencies by running `pip install`
 - create virtualenv `virtualenv my_project`
 - work on virtualenv `workon my_project`
-
+- install python dependencies by running `pip install`
 
 ## How to Use
 - run `uwsgi run.ini` it will listen to default http://localhost:8282
