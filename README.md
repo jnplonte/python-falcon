@@ -5,10 +5,9 @@
 
 ## Dependencies
 * python: [https://www.python.org/](https://www.python.org/)
+* mysql: [https://www.mysql.com/](https://www.mysql.com/)
 * falconframework: [https://falconframework.org/](https://falconframework.org/)
 * pip: [https://pypi.python.org/pypi/pip](https://pypi.python.org/pypi/pip)
-* uwsgi: [http://uwsgi-docs.readthedocs.io/](http://uwsgi-docs.readthedocs.io/en/latest/)
-* nose: [http://nose.readthedocs.io/](http://nose.readthedocs.io/en/latest/)
 
 
 ## Installation
