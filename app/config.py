@@ -15,11 +15,6 @@ class DevConfig(BaseConfig):
     LOG_LEVEL = 'DEBUG'
 
 
-class TestConfig(BaseConfig):
-    ENV = 'TEST'
-    LOG_LEVEL = 'NOTSET'
-
-
 class ProdConfig(BaseConfig):
     ENV = 'PROD'
     LOG_LEVEL = 'INFO'
