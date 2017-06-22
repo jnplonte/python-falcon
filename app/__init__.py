@@ -9,8 +9,15 @@ from app.util.logs import setup_logging
 from app.util.connection import connect
 
 def create_app(env, **kwargs):
-    log_level = kwargs.get('log_level', None)
-    create_log(env, log_level)
+    if env == 'DEV':
+        configs = DevConfig
+    elif env == 'PROD':
+        configs = ProdConfig
+    else:
+        configs = DevConfig
+
+    log_level = kwargs.get('log_level', configs.LOG_LEVEL)
+    setup_logging(log_level)
 
     logger = logging.getLogger(configs.APP_NAME)
     logger.info('Starting {} in {} mode'.format(configs.APP_NAME, configs.ENV))
@@ -28,13 +35,6 @@ def create_app(env, **kwargs):
 
 
 def create_table(env, **kwargs):
-    log_level = kwargs.get('log_level', None)
-    create_log(env, log_level)
-
-    return connect()
-
-
-def create_log(env, log_level):
     if env == 'DEV':
         configs = DevConfig
     elif env == 'PROD':
@@ -42,10 +42,10 @@ def create_log(env, log_level):
     else:
         configs = DevConfig
 
-    if log_level:
-        log_level = configs.LOG_LEVEL
-
+    log_level = kwargs.get('log_level', configs.LOG_LEVEL)
     setup_logging(log_level)
+
+    return connect(configs)
 
 
 def create_route(app):
